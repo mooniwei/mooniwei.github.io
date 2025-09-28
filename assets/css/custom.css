@@ -1,30 +1,4 @@
-/* 覆盖站点主色 (#f56a6a → #D3EEF5) */
-a,
-a:hover,
-header.major > :last-child,
-input:focus,
-select:focus,
-textarea:focus,
-ul.contact li:before,
-.features article .icon:before,
-#header,
-ul.pagination li > .page.active {
-  color: #D3EEF5 !important;
-  border-color: #D3EEF5 !important;
-  box-shadow: 0 0 0 1px #D3EEF5 !important;
-}
-
-/* 背景色的元素 */
-#header { border-bottom-color: #D3EEF5 !important; }
-ul.pagination li > .page.active { background-color: #D3EEF5 !important; }
-
-/* 侧边栏背景改成 #FEF9F4 */
-#sidebar { background-color: #FEF9F4 !important; }
-
-/* 调整菜单 hover / active 状态用主色 */
-#menu ul a:hover,
-#menu ul span:hover,
-#menu ul a.active,
-#menu ul span.active {
-  color: #D3EEF5 !important;
+/* 覆盖侧边栏背景色 */
+#sidebar {
+  background-color: #FEF9F4 !important;
 }
