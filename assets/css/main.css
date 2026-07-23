@@ -257,13 +257,13 @@ a {
     -ms-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
     transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
     border-bottom: dotted 1px;
-    color: #97D2FF;
+    color: #61BAFF;
     text-decoration: none;
 }
 
 a:hover {
-    border-bottom-color: #97D2FF;
-    color: #97D2FF !important;
+    border-bottom-color: #61BAFF;
+    color: #61BAFF !important;
 }
 
 a:hover strong {
@@ -1613,7 +1613,7 @@ header p {
 }
 
 header.major> :last-child {
-    border-bottom: solid 3px #97D2FF;
+    border-bottom: solid 3px #61BAFF;
     display: inline-block;
     margin: 0 0 2em 0;
     padding: 0 0.75em 0.5em 0;
@@ -1680,8 +1680,8 @@ input[type="search"]:focus,
 input[type="url"]:focus,
 select:focus,
 textarea:focus {
-    border-color: #97D2FF;
-    box-shadow: 0 0 0 1px #97D2FF;
+    border-color: #61BAFF;
+    box-shadow: 0 0 0 1px #61BAFF;
 }
 
 select {
@@ -1789,8 +1789,8 @@ input[type="radio"]:checked+label:before {
 
 input[type="checkbox"]:focus+label:before,
 input[type="radio"]:focus+label:before {
-    border-color: #97D2FF;
-    box-shadow: 0 0 0 1px #97D2FF;
+    border-color: #61BAFF;
+    box-shadow: 0 0 0 1px #61BAFF;
 }
 
 input[type="checkbox"]+label:before {
@@ -2129,7 +2129,7 @@ ul.contact li:before {
 }
 
 ul.contact li:before {
-    color: #97D2FF;
+    color: #61BAFF;
     display: inline-block;
     font-size: 1.5em;
     height: 1.125em;
@@ -2188,7 +2188,7 @@ ul.pagination li>.page {
 }
 
 ul.pagination li>.page.active {
-    background-color: #97D2FF;
+    background-color: #61BAFF;
     color: #ffffff !important;
 }
 
@@ -2495,7 +2495,7 @@ button:disabled,
 }
 
 .features article .icon:before {
-    color: #97D2FF;
+    color: #61BAFF;
     font-size: 2.75rem;
     position: relative;
     top: 0.05em;
@@ -3088,7 +3088,7 @@ button:disabled,
     display: -webkit-flex;
     display: -ms-flex;
     display: flex;
-    border-bottom: solid 5px #97D2FF;
+    border-bottom: solid 5px #61BAFF;
     padding: 6em 0 1em 0;
     position: relative;
 }
@@ -3272,7 +3272,7 @@ button:disabled,
 
 #menu ul a:hover,
 #menu ul span:hover {
-    color: #97D2FF;
+    color: #61BAFF;
 }
 
 #menu ul a.opener,
@@ -3314,7 +3314,7 @@ button:disabled,
 
 #menu ul a.opener:hover:before,
 #menu ul span.opener:hover:before {
-    color: #97D2FF;
+    color: #61BAFF;
 }
 
 #menu ul a.opener.active+ul,
