@@ -69,6 +69,32 @@
 
 				});
 
+	// News.
+		var $newsScroll = $('.news-scroll');
+
+		var resizeNews = function() {
+
+			$newsScroll.each(function() {
+
+				var $this = $(this),
+					height = 0;
+
+				$this.children('.news-item').slice(0, 3).each(function() {
+					height += $(this).outerHeight(true);
+				});
+
+				if (height > 0)
+					$this.css('height', Math.ceil(height + 2) + 'px');
+
+			});
+
+		};
+
+		$window
+			.on('load.news resize.news', resizeNews);
+
+		resizeNews();
+
 	// Sidebar.
 		var $sidebar = $('#sidebar'),
 			$sidebar_inner = $sidebar.children('.inner');
