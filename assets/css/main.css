@@ -1684,7 +1684,8 @@ header.main> :last-child {
 /* Publications */
 
 .publication-list {
-    margin-top: 1em;
+    margin: 1em auto 0;
+    max-width: 80em;
 }
 
 .publication-item {
@@ -1693,9 +1694,9 @@ header.main> :last-child {
     -ms-align-items: center;
     align-items: center;
     display: grid;
-    gap: 2.5em;
+    gap: 1.75em;
     grid-template-columns: minmax(11em, 23%) minmax(0, 1fr);
-    padding: 2.25em 0;
+    padding: 1.4em 0;
 }
 
 .publication-item:first-child {
@@ -1716,14 +1717,18 @@ header.main> :last-child {
     border-radius: 0.375em;
     display: block;
     height: auto;
-    max-height: 14em;
+    max-height: 11em;
     max-width: 100%;
     object-fit: contain;
     width: 100%;
 }
 
+.publication-content {
+    font-size: 0.88em;
+}
+
 .publication-content h3 {
-    font-size: 1.25em;
+    font-size: 1.2em;
     line-height: 1.45;
     margin-bottom: 0.8em;
 }
@@ -1765,7 +1770,7 @@ header.main> :last-child {
     .publication-item {
         gap: 1.5em;
         grid-template-columns: 1fr;
-        padding: 2em 0;
+        padding: 1.5em 0;
     }
 
     .publication-image {
