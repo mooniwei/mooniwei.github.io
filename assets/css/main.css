@@ -1686,8 +1686,8 @@ header.main> :last-child {
 .publications-heading {
     align-items: flex-end;
     display: flex;
-    gap: 2em;
-    justify-content: space-between;
+    gap: 1.25em;
+    justify-content: flex-start;
     margin-bottom: 2em;
 }
 
@@ -1812,6 +1812,7 @@ header.main> :last-child {
     font-size: 1em;
     max-width: 50em;
     padding-right: 0em;
+    position: relative;
 }
 
 .publication-content h3 {
@@ -1844,16 +1845,6 @@ header.main> :last-child {
     white-space: normal;
 }
 
-.publication-title:after {
-    color: #65BCFF;
-    content: '+';
-    display: inline-block;
-    font-family: "Open Sans", sans-serif;
-    font-size: 0.8em;
-    margin-left: 0.45em;
-    transition: transform 0.25s ease-in-out;
-}
-
 .publication-title:hover,
 .publication-title:focus-visible {
     background: none;
@@ -1868,10 +1859,6 @@ header.main> :last-child {
     border-radius: 0.2em;
     outline: solid 2px #65BCFF;
     outline-offset: 0.2em;
-}
-
-.publication-title[aria-expanded="true"]:after {
-    transform: rotate(45deg);
 }
 
 .publication-content p {
@@ -1908,21 +1895,30 @@ header.main> :last-child {
 }
 
 .publication-abstract {
+    left: 0;
     max-height: 0;
     opacity: 0;
     overflow: hidden;
-    transition: max-height 0.4s ease, opacity 0.25s ease, margin-top 0.4s ease;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    transform: translateY(-0.35em);
+    transition: max-height 0.4s ease, opacity 0.25s ease, transform 0.3s ease;
+    z-index: 20;
 }
 
 .publication-abstract.is-open {
-    margin-top: 0.9em;
     max-height: 32em;
     opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0.5em);
 }
 
 .publication-abstract-inner {
-    background: linear-gradient(135deg, rgba(101, 188, 255, 0.12), rgba(101, 188, 255, 0.04));
+    background: linear-gradient(135deg, #edf8ff, #f8fcff);
     border-radius: 0.5em;
+    box-shadow: 0 0.75em 2em rgba(61, 68, 73, 0.16);
     padding: 1em 1.15em;
 }
 
@@ -1942,8 +1938,7 @@ header.main> :last-child {
         animation: none;
     }
 
-    .publication-abstract,
-    .publication-title:after {
+    .publication-abstract {
         transition: none;
     }
 }
