@@ -95,6 +95,159 @@
 
 		resizeNews();
 
+	// Publication note typewriter.
+		var $publicationNote = $('.publication-note');
+
+		if ($publicationNote.length) {
+
+			var publicationNoteText = $publicationNote.text().trim(),
+				hasTypedPublicationNote = false,
+				reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+			$publicationNote
+				.attr('aria-label', publicationNoteText)
+				.empty()
+				.append('<span class="typewriter-text" aria-hidden="true"></span><span class="typewriter-caret" aria-hidden="true"></span>');
+
+			var typePublicationNote = function() {
+
+				if (hasTypedPublicationNote)
+					return;
+
+				hasTypedPublicationNote = true;
+
+				if (reduceMotion) {
+					$publicationNote.find('.typewriter-text').text(publicationNoteText);
+					return;
+				}
+
+				var index = 0,
+					$text = $publicationNote.find('.typewriter-text');
+
+				var typeNextCharacter = function() {
+					$text.text(publicationNoteText.slice(0, index + 1));
+					index++;
+
+					if (index < publicationNoteText.length)
+						window.setTimeout(typeNextCharacter, 45);
+					else
+						window.setTimeout(function() {
+							$text.text('');
+							index = 0;
+							window.setTimeout(typeNextCharacter, 300);
+						}, 3000);
+				};
+
+				typeNextCharacter();
+
+			};
+
+			if ('IntersectionObserver' in window) {
+				var publicationNoteObserver = new IntersectionObserver(function(entries) {
+					if (entries[0].isIntersecting) {
+						typePublicationNote();
+						publicationNoteObserver.disconnect();
+					}
+				}, { threshold: 0.6 });
+
+				publicationNoteObserver.observe($publicationNote[0]);
+			}
+			else
+				typePublicationNote();
+
+		}
+
+	// Publication abstracts.
+		var $publicationTitles = $('.publication-title');
+
+		var setPublicationAbstract = function($button, open) {
+
+			var $panel = $('#' + $button.attr('aria-controls'));
+
+			$button.attr('aria-expanded', open ? 'true' : 'false');
+			$panel
+				.attr('aria-hidden', open ? 'false' : 'true')
+				.toggleClass('is-open', open);
+
+		};
+
+		var closeOtherPublicationAbstracts = function($currentButton) {
+
+			$publicationTitles.filter('[aria-expanded="true"]').not($currentButton)
+				.each(function() {
+					setPublicationAbstract($(this), false);
+				});
+
+		};
+
+		$publicationTitles
+			.on('mouseenter', function() {
+
+				var $button = $(this);
+
+				closeOtherPublicationAbstracts($button);
+				setPublicationAbstract($button, true);
+
+			})
+			.on('click', function(event) {
+
+				var supportsHover = window.matchMedia && window.matchMedia('(hover: hover)').matches;
+
+				if (event.detail > 0 && supportsHover) {
+					setPublicationAbstract($(this), true);
+					return;
+				}
+
+				var $button = $(this),
+					willOpen = $button.attr('aria-expanded') !== 'true';
+
+				closeOtherPublicationAbstracts($button);
+				setPublicationAbstract($button, willOpen);
+
+			});
+
+		$('.publication-item').on('mouseleave', function() {
+			setPublicationAbstract($(this).find('.publication-title'), false);
+		});
+
+	// Publication filters.
+		var $publicationFilters = $('.publication-filter'),
+			$publicationItems = $('.publication-item'),
+			$publicationFilterStatus = $('#publication-filter-status'),
+			activePublicationFilter = null;
+
+		$publicationFilters.on('click', function() {
+
+			var $filter = $(this),
+				selectedFilter = $filter.data('filter');
+
+			activePublicationFilter = activePublicationFilter === selectedFilter ? null : selectedFilter;
+
+			$publicationFilters.each(function() {
+				var $this = $(this),
+					isActive = $this.data('filter') === activePublicationFilter;
+
+				$this
+					.attr('aria-pressed', isActive ? 'true' : 'false')
+					.toggleClass('is-active', isActive);
+			});
+
+			$publicationItems.each(function() {
+				var $item = $(this),
+					isVisible = !activePublicationFilter || $item.data('publication-type') === activePublicationFilter;
+
+				$item.toggleClass('is-filtered-out', !isVisible);
+
+				if (!isVisible)
+					setPublicationAbstract($item.find('.publication-title'), false);
+			});
+
+			$publicationFilterStatus.text(activePublicationFilter
+				? 'Showing ' + activePublicationFilter + ' publications.'
+				: 'Showing all publications.');
+
+		});
+
 	// Sidebar.
 		var $sidebar = $('#sidebar'),
 			$sidebar_inner = $sidebar.children('.inner');

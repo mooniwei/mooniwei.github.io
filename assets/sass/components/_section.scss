@@ -98,9 +98,93 @@
 
 /* Publications */
 
+	.publications-heading {
+		align-items: flex-end;
+		display: flex;
+		gap: 2em;
+		justify-content: space-between;
+		margin-bottom: _size(element-margin);
+
+		header.major > :last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	.publication-filters {
+		display: flex;
+		gap: 0.65em;
+		padding-bottom: 0.45em;
+	}
+
+	.publication-filter {
+		background: linear-gradient(135deg, rgba(_palette(accent), 0.16), rgba(_palette(accent), 0.05));
+		border: solid 1px rgba(_palette(accent), 0.45);
+		box-shadow: none;
+		color: #657078 !important;
+		font-family: _font(family);
+		font-size: 0.85em;
+		font-weight: _font(weight-bold);
+		height: auto;
+		letter-spacing: 0.025em;
+		line-height: 1;
+		padding: 0.65em 1em;
+		text-transform: none;
+		transition: background 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out, transform 0.2s ease-in-out;
+		white-space: nowrap;
+
+		&:hover,
+		&:focus-visible {
+			background: linear-gradient(135deg, rgba(_palette(accent), 0.28), rgba(_palette(accent), 0.1));
+			border-color: _palette(accent);
+			color: _palette(fg-bold) !important;
+		}
+
+		&:focus-visible {
+			outline: solid 2px _palette(accent);
+			outline-offset: 0.2em;
+		}
+
+		&.is-active,
+		&.is-active:hover,
+		&.is-active:active {
+			background: linear-gradient(135deg, _palette(accent), #a9dcff);
+			border-color: transparent;
+			color: #ffffff !important;
+			transform: translateY(-1px);
+		}
+	}
+
 	.publication-list {
 		margin: 1em auto 0;
 		max-width: 80em;
+	}
+
+	.publication-item.is-filtered-out {
+		display: none;
+	}
+
+	.publication-note {
+		min-height: 1.65em;
+	}
+
+	.typewriter-caret {
+		animation: typewriter-blink 0.8s step-end infinite;
+		background: _palette(accent);
+		display: inline-block;
+		height: 1.1em;
+		margin-left: 0.15em;
+		vertical-align: -0.15em;
+		width: 2px;
+	}
+
+	@keyframes typewriter-blink {
+		0%, 45% {
+			opacity: 1;
+		}
+
+		46%, 100% {
+			opacity: 0;
+		}
 	}
 
 	.publication-item {
@@ -121,6 +205,7 @@
 
 	.publication-image {
 		align-items: center;
+		align-self: start;
 		display: flex;
 		justify-content: center;
 
@@ -154,6 +239,58 @@
 		}
 	}
 
+	.publication-title {
+		@include vendor('appearance', 'none');
+		background: none;
+		border: 0;
+		box-shadow: none;
+		color: inherit !important;
+		cursor: pointer;
+		display: inline;
+		font: inherit;
+		font-size: inherit;
+		font-weight: inherit;
+		height: auto;
+		letter-spacing: inherit;
+		line-height: inherit;
+		padding: 0;
+		position: relative;
+		text-align: left;
+		text-transform: none;
+		transition: color 0.2s ease-in-out;
+		white-space: normal;
+
+		&:after {
+			color: _palette(accent);
+			content: '+';
+			display: inline-block;
+			font-family: _font(family);
+			font-size: 0.8em;
+			margin-left: 0.45em;
+			transition: transform 0.25s ease-in-out;
+		}
+
+		&:hover,
+		&:focus-visible {
+			background: none;
+			color: _palette(accent) !important;
+		}
+
+		&:active {
+			background: none;
+		}
+
+		&:focus-visible {
+			border-radius: 0.2em;
+			outline: solid 2px _palette(accent);
+			outline-offset: 0.2em;
+		}
+
+		&[aria-expanded="true"]:after {
+			transform: rotate(45deg);
+		}
+	}
+
 	.publication-authors {
 		color: _palette(fg);
 	}
@@ -179,7 +316,58 @@
 		white-space: nowrap;
 	}
 
+	.publication-abstract {
+		max-height: 0;
+		opacity: 0;
+		overflow: hidden;
+		transition: max-height 0.4s ease, opacity 0.25s ease, margin-top 0.4s ease;
+
+		&.is-open {
+			margin-top: 0.9em;
+			max-height: 32em;
+			opacity: 1;
+		}
+	}
+
+	.publication-abstract-inner {
+		background: linear-gradient(135deg, rgba(_palette(accent), 0.12), rgba(_palette(accent), 0.04));
+		border-radius: 0.5em;
+		padding: 1em 1.15em;
+
+		p {
+			color: _palette(fg);
+			line-height: 1.65;
+			margin: 0.55em 0 0;
+		}
+	}
+
+	.abstract-label {
+		color: _palette(fg-bold);
+		font-weight: _font(weight-bold);
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.typewriter-caret {
+			animation: none;
+		}
+
+		.publication-abstract,
+		.publication-title:after {
+			transition: none;
+		}
+	}
+
 	@include breakpoint('<=small') {
+		.publications-heading {
+			align-items: flex-start;
+			flex-direction: column;
+			gap: 1em;
+		}
+
+		.publication-filters {
+			padding-bottom: 0;
+		}
+
 		.publication-item {
 			gap: 1.5em;
 			grid-template-columns: 1fr;

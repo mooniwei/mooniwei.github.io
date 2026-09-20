@@ -106,64 +106,101 @@
 
                 <!-- Section - Publication -->
                 <section id="Publications">
-                    <header class="major">
-                        <h2>Selected Publications</h2>
-                    </header>
-                    <p>* equal contribution, # corresponding author.</p>
+                    <div class="publications-heading">
+                        <header class="major">
+                            <h2>Selected Publications</h2>
+                        </header>
+                        <div class="publication-filters" aria-label="Filter publications by type">
+                            <button class="publication-filter" type="button" data-filter="conference" aria-pressed="false" aria-controls="publication-list">Conference</button>
+                            <button class="publication-filter" type="button" data-filter="journal" aria-pressed="false" aria-controls="publication-list">Journal</button>
+                        </div>
+                    </div>
+                    <span class="sr-only" id="publication-filter-status" aria-live="polite">Showing all publications.</span>
+                    <p class="publication-note">* equal contribution, # corresponding author.</p>
 
-					<div class="publication-list">
-                        <article class="publication-item">
+					<div class="publication-list" id="publication-list">
+                        <article class="publication-item" data-publication-type="conference">
                             <div class="publication-image">
                                 <img src="images/CatMomentSurvey.png" alt="Inclusive small-group conversation feedback design teaser" />
                             </div>
                             <div class="publication-content">
-                                <h3>Exploring Socially Acceptable 3D Feedback Design for Inclusive Small-Group Conversation</h3>
+                                <h3><button class="publication-title" id="title-group" type="button" aria-expanded="false" aria-controls="abstract-group">Exploring Socially Acceptable 3D Feedback Design for Inclusive Small-Group Conversation</button></h3>
                                 <p class="publication-authors"><strong>Qianjie Wei</strong>, Yifan Li, Zhen Bai#.</p>
                                 <p class="publication-venue"><span class="venue-badge">GROUP 2027</span> In Proceedings of the ACM International Conference on Supporting Group Work </p>
+                                <div class="publication-abstract" id="abstract-group" role="region" aria-labelledby="title-group" aria-hidden="true">
+                                    <div class="publication-abstract-inner">
+                                        <span class="abstract-label">Abstract</span>
+                                        <p>Abstract coming soon.</p>
+                                    </div>
+                                </div>
                             </div>
                         </article>
 
-                        <article class="publication-item">
+                        <article class="publication-item" data-publication-type="journal">
                             <div class="publication-image">
                                 <img src="images/MentorMenteeDesign.png" alt="Mentoring support technology design teaser" />
                             </div>
                             <div class="publication-content">
-                                <h3>Understanding and Designing Technology to Support Mentoring Functions in Chinese Design Teams</h3>
+                                <h3><button class="publication-title" id="title-mentoring" type="button" aria-expanded="false" aria-controls="abstract-mentoring">Understanding and Designing Technology to Support Mentoring Functions in Chinese Design Teams</button></h3>
                                 <p class="publication-authors">Luyao Shen, Zhongyue Zhang, <strong>Qianjie Wei</strong>, Lik-Hang Lee#, Pan Hui#, Mingming Fan#.</p>
                                 <p class="publication-venue"><span class="venue-badge">IJHCI</span> In International Journal of Human–Computer Interaction <span class="publication-links">[<a href="https://www.tandfonline.com/doi/full/10.1080/10447318.2026.2651347" target="_blank" rel="noopener noreferrer">Paper</a>]</span></p>
+                                <div class="publication-abstract" id="abstract-mentoring" role="region" aria-labelledby="title-mentoring" aria-hidden="true">
+                                    <div class="publication-abstract-inner">
+                                        <span class="abstract-label">Abstract</span>
+                                        <p>Based on interviews with 23 Chinese designers, this study examines how mentoring functions operate in fast-paced design teams. It finds that career support is often oriented toward project efficiency, while psychosocial support is limited by insufficient psychological safety. The paper identifies structural challenges and design opportunities for intelligent systems that reduce mentor workload and relational risk.</p>
+                                    </div>
+                                </div>
                             </div>
                         </article>
 
-                        <article class="publication-item">
+                        <article class="publication-item" data-publication-type="journal">
                             <div class="publication-image">
                                 <img src="images/VRShuttleCock.png" alt="VR-Shuttlecock project teaser" />
                             </div>
                             <div class="publication-content">
-                                <h3>VR-Shuttlecock: Toward Enhancing Older Adults’ Balance Ability through Kicking Shuttlecock in VR with Multi-Sensory Feedback</h3>
+                                <h3><button class="publication-title" id="title-shuttlecock" type="button" aria-expanded="false" aria-controls="abstract-shuttlecock">VR-Shuttlecock: Toward Enhancing Older Adults’ Balance Ability through Kicking Shuttlecock in VR with Multi-Sensory Feedback</button></h3>
                                 <p class="publication-authors">Fan Lin, Yiqi Liang, <strong>Qianjie Wei</strong>, Mingshuo Li, Chutian Jiang, Mingming Fan#.</p>
                                 <p class="publication-venue"><span class="venue-badge">IMWUT 2026</span> In Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies <span class="publication-links">[<a href="https://dl.acm.org/doi/10.1145/3770691" target="_blank" rel="noopener noreferrer">Paper</a>]</span></p>
+                                <div class="publication-abstract" id="abstract-shuttlecock" role="region" aria-labelledby="title-shuttlecock" aria-hidden="true">
+                                    <div class="publication-abstract-inner">
+                                        <span class="abstract-label">Abstract</span>
+                                        <p>VR-Shuttlecock combines leg exercises, progressive gameplay, multisensory feedback, and safety measures to support balance training for older adults. In a four-week controlled study, participants using the system showed meaningful balance improvements and positive attitudes toward continued training, suggesting that VR shuttlecock can provide an engaging and practical exercise experience.</p>
+                                    </div>
+                                </div>
                             </div>
                         </article>
 
-                        <article class="publication-item">
+                        <article class="publication-item" data-publication-type="conference">
                             <div class="publication-image">
                                 <img src="images/RemoteChess.png" alt="RemoteChess project teaser" />
                             </div>
                             <div class="publication-content">
-                                <h3>RemoteChess: Enhancing Older Adults' Social Connectedness via Designing a Virtual Reality Chinese Chess (Xiangqi) Community</h3>
+                                <h3><button class="publication-title" id="title-remotechess" type="button" aria-expanded="false" aria-controls="abstract-remotechess">RemoteChess: Enhancing Older Adults' Social Connectedness via Designing a Virtual Reality Chinese Chess (Xiangqi) Community</button></h3>
                                 <p class="publication-authors"><strong>Qianjie Wei</strong>, Xiaoying Wei, Yiqi Liang, Fan Lin, Nuonan Si, Mingming Fan#.</p>
                                 <p class="publication-venue"><span class="venue-badge">CHI 2025</span> In Proceedings of the CHI Conference on Human Factors in Computing Systems <span class="publication-links">[<a href="https://dl.acm.org/doi/10.1145/3706598.3714236" target="_blank" rel="noopener noreferrer">Paper</a>]</span></p>
+                                <div class="publication-abstract" id="abstract-remotechess" role="region" aria-labelledby="title-remotechess" aria-hidden="true">
+                                    <div class="publication-abstract-inner">
+                                        <span class="abstract-label">Abstract</span>
+                                        <p>RemoteChess is a multi-user VR community built around the culturally familiar activity of Chinese chess. A study with older adults found that familiar environments, culturally relevant social catalysts, and asymmetric player and spectator roles supported social interaction and connectedness. The work concludes with design guidance for culturally grounded social activities in VR.</p>
+                                    </div>
+                                </div>
                             </div>
                         </article>
 
-                        <article class="publication-item">
+                        <article class="publication-item" data-publication-type="conference">
                             <div class="publication-image">
                                 <img src="images/AugmentedLibrary.png" alt="Augmented Library project teaser" />
                             </div>
                             <div class="publication-content">
-                                <h3>Augmented Library: Toward Enriching Physical Library Experience Using HMD-Based Augmented Reality</h3>
+                                <h3><button class="publication-title" id="title-library" type="button" aria-expanded="false" aria-controls="abstract-library">Augmented Library: Toward Enriching Physical Library Experience Using HMD-Based Augmented Reality</button></h3>
                                 <p class="publication-authors"><strong>Qianjie Wei</strong>, Jingling Zhang, Pengqi Wang, Xiaofu Jin, Mingming Fan#.</p>
                                 <p class="publication-venue"><span class="venue-badge">VINCI 2024</span> In Proceedings of the International Symposium on Visual Information Communication and Interaction <span class="publication-links">[<a href="https://dl.acm.org/doi/10.1145/3678698.3687174" target="_blank" rel="noopener noreferrer">Paper</a>]</span></p>
+                                <div class="publication-abstract" id="abstract-library" role="region" aria-labelledby="title-library" aria-hidden="true">
+                                    <div class="publication-abstract-inner">
+                                        <span class="abstract-label">Abstract</span>
+                                        <p>Augmented Library is an HMD-based AR system designed to renew engagement with physical libraries. It layers digital interactions onto the physical environment to support book discovery, community participation, and diverse user needs. The paper presents the system design and preliminary feedback on its potential to enrich students’ in-person library experiences.</p>
+                                    </div>
+                                </div>
                             </div>
                         </article>
                     </div>
