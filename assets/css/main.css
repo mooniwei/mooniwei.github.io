@@ -1725,7 +1725,8 @@ header.main> :last-child {
 
 .publication-content {
     font-size: 1em;
-    padding-right: 4em;
+    max-width: 60em;
+    padding-right: 0em;
 }
 
 .publication-content h3 {
