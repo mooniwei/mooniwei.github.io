@@ -136,10 +136,10 @@
 	}
 
 	.publication-content {
-		font-size: 0.88em;
+		padding-right: 1.5em;
 
 		h3 {
-			font-size: 1.2em;
+			font-size: 1.25em;
 			line-height: 1.45;
 			margin-bottom: 0.8em;
 		}
@@ -192,5 +192,9 @@
 				max-height: 11em;
 				width: 100%;
 			}
+		}
+
+		.publication-content {
+			padding-right: 0;
 		}
 	}
