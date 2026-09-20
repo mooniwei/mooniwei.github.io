@@ -1694,7 +1694,7 @@ header.main> :last-child {
     align-items: center;
     display: grid;
     gap: 2.5em;
-    grid-template-columns: minmax(14em, 28%) minmax(0, 1fr);
+    grid-template-columns: minmax(11em, 23%) minmax(0, 1fr);
     padding: 2.25em 0;
 }
 
@@ -1773,7 +1773,7 @@ header.main> :last-child {
     }
 
     .publication-image img {
-        max-height: none;
+        max-height: 11em;
         width: 100%;
     }
 }
