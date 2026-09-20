@@ -1749,7 +1749,6 @@ header.main> :last-child {
 
 .venue-badge {
     background: linear-gradient(135deg, rgba(101, 188, 255, 0.3), rgba(101, 188, 255, 0.08));
-    border-left: solid 3px #65BCFF;
     border-radius: 0.375em;
     color: #3d4449;
     font-weight: 600;
