@@ -95,6 +95,44 @@
 
 		resizeNews();
 
+	// Intro title typewriter (plays once on page load).
+		var $introTitle = $('.intro-typewriter');
+
+		if ($introTitle.length) {
+
+			var introTitleText = $introTitle.text().trim(),
+				introReduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+			$introTitle
+				.attr('aria-label', introTitleText)
+				.empty()
+				.append('<span class="typewriter-text" aria-hidden="true"></span><span class="typewriter-caret" aria-hidden="true"></span>');
+
+			if (introReduceMotion) {
+				$introTitle.find('.typewriter-text').text(introTitleText);
+				$introTitle.addClass('is-complete');
+			}
+			else {
+				var introIndex = 0,
+					$introText = $introTitle.find('.typewriter-text');
+
+				var typeNextIntroCharacter = function() {
+					$introText.text(introTitleText.slice(0, introIndex + 1));
+					introIndex++;
+
+					if (introIndex < introTitleText.length)
+						window.setTimeout(typeNextIntroCharacter, 75);
+					else
+						window.setTimeout(function() {
+							$introTitle.addClass('is-complete');
+						}, 700);
+				};
+
+				window.setTimeout(typeNextIntroCharacter, 250);
+			}
+
+		}
+
 	// Publication note typewriter.
 		var $publicationNote = $('.publication-note');
 

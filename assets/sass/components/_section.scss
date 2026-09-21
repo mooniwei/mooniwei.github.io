@@ -167,6 +167,16 @@
 		min-height: 1.65em;
 	}
 
+	.intro-typewriter {
+		min-height: 1.2em;
+
+		&.is-complete .typewriter-caret {
+			animation: none;
+			opacity: 0;
+			transition: opacity 0.25s ease;
+		}
+	}
+
 	.typewriter-caret {
 		animation: typewriter-blink 0.8s step-end infinite;
 		background: _palette(accent);
